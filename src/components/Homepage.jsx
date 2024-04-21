@@ -25,12 +25,12 @@ const Homepage = () => {
             <Title level={2} className="home-title">Top Cryptocurrencies</Title>
             <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
         </div>
-        <Cryptocurrencies simplified={true} total={globalStats.total}/>
+        <Cryptocurrencies simplified={true} />
         <div className="home-heading-container">
             <Title level={2} className="home-title">Latest News</Title>
             <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
         </div>
-        <News simplified={true}/>
+        <News />
         </>
     )
 }
