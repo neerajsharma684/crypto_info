@@ -32,22 +32,23 @@ const Cryptocurrencies = ({ simplified }) => {
     if (isFetching) return <Spin size="large"/>;
 
     // console.log(cryptos);
+    
     return (
         <>
         <div className="search-crypto">
             <Input placeholder="Search here..." onChange={(e) => setSearchTerm(e.target.value)}/>
         </div>
         <Row gutter={[32, 32]} className="crypto-card-container">
-            {cryptos?.slice(0, count).map((currency) => (
-                    <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.id}>
-                        <Link to={`/crypto/${currency.id}`}>
-                            <Card key={currency.id}
-                                title={`${currency.rank}. ${currency.name}`}
-                                extra={<img className="crypto-image" src={currency.iconUrl} alt={currency.name} />}
+            {cryptos?.slice(0, count).map((coin) => (
+                    <Col xs={24} sm={12} lg={6} className="crypto-card" key={coin.id}>
+                        <Link to={`/crypto/${coin.uuid}`}>
+                            <Card key={coin.id}
+                                title={`${coin.rank}. ${coin.name}`}
+                                extra={<img className="crypto-image" src={coin.iconUrl} alt={coin.name} />}
                                 hoverable>
-                                <p>Price: ${millify(currency.price)}</p>
-                                <p>Market Cap: {millify(currency.marketCap)}</p>
-                                <p>Daily Change: {millify(currency.change)}%</p>
+                                <p>Price: ${millify(coin.price)}</p>
+                                <p>Market Cap: {millify(coin.marketCap)}</p>
+                                <p>Daily Change: {millify(coin.change)}%</p>
                             </Card>
                         </Link>
                     </Col>
